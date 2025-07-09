@@ -1,16 +1,13 @@
 const express = require('express');
-const axios = require('axios');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 8080;;
 
-app.get('/account', async (req, res) => {
-  console.log("This is Account")
-  const response = await axios.get('http://localhost:3002/product');
-  console.log(response.data)
+app.get('/product', (req, res) => {
   res.send(
-    { 'data': response.data.data}
+    { 'data': "Hi I'm Product!" }
   );
 });
+
 
 app.listen(PORT, () => {
   console.log(`Express server listening at  
